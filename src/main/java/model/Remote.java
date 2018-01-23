@@ -43,4 +43,9 @@ public class Remote extends RemoteObserver{
     public void  update(double frequency){
         this.frequency = frequency;
     }
+    @Override
+	public String toString() {
+		return "Remote [id=" + id + ", Frequency=" + frequency + ", Active=" + active
+				+ "]";
+	}
 }

@@ -10,11 +10,12 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame {
     private Administrator administrator;
     private JPanel jContentPane = null;
+    private JTextField t1;
     public MainMenu(){
         administrator = new Administrator();
         this.setContentPane(getContent());
         setTitle("Remote Manager");
-        this.setSize(300, 200);
+        this.setSize(300, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -26,7 +27,7 @@ public class MainMenu extends JFrame {
 
             JPanel panel = new JPanel();
 
-            panel.setBounds(5, 11, 250, 140);
+            panel.setBounds(5, 11, 250, 350);
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             jContentPane.add(panel);
             JLabel label1 = new JLabel("1. Create Remotes");
@@ -39,7 +40,9 @@ public class MainMenu extends JFrame {
             panel.add(label4);
             JLabel label5 = new JLabel("5. Open Gate");
             panel.add(label5);
-            JTextField t1 = new JTextField();
+            JLabel label6 = new JLabel("6. New frequency");
+            panel.add(label6);
+            t1 = new JTextField();
             t1.setMaximumSize(new Dimension(200,23));
             panel.add(t1);
             JButton buttonOK = new JButton("Go");
@@ -58,7 +61,20 @@ public class MainMenu extends JFrame {
         switch (choice){
             case 1:
                 administrator.createRemotes();
-                new CreateRemotes(administrator).setVisible(true);
+                new ViewRemotes(administrator).setVisible(true);
+                break;
+            case 2: 
+            	new ViewRemotes(administrator).setVisible(true);
+            	break;
+            case 3:
+            	new ActivateRemote(administrator).setVisible(true);
+            	break;
+            case 4:
+            	new DeactivateRemote(administrator).setVisible(true);
+            	break;
+            case 6:
+            	new UpdateFrequency(administrator).setVisible(true);
+            	break;
         }
     }
 }

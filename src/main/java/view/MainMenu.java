@@ -72,6 +72,9 @@ public class MainMenu extends JFrame {
             case 4:
             	new DeactivateRemote(administrator).setVisible(true);
             	break;
+            case 5:
+            	new OpenGate(administrator).setVisible(true);
+            	break;
             case 6:
             	new UpdateFrequency(administrator).setVisible(true);
             	break;

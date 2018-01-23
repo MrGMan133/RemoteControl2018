@@ -63,7 +63,7 @@ public class ActivateRemote extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					int id = Integer.parseInt(t1.getText());
-					
+					//to complete
 				}
 			});
             panel.add(buttonActivate);

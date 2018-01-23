@@ -2,6 +2,7 @@ package administrator;
 
 import model.Remote;
 import model.RemoteManager;
+import persistency.RemoteService;
 import utilities.RandomGenerator;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Administrator {
     private static final Logger log = Logger.getLogger(Administrator.class.getName());
     private RemoteManager remoteManager = new RemoteManager();
     private int amountToMake = 10;
+    private RemoteService remoteService = new RemoteService();
 
     private List<Remote> remotesToSave = new ArrayList<Remote>();
 
@@ -20,6 +22,7 @@ public class Administrator {
         remotesToSave = RandomGenerator.setRemotes(amountToMake);
         for (Remote remote : remotesToSave) {
             log.info("Remote: " + remote.toString() + " created.");
+            remoteService.persist(remote);
         }
     }
     public List<Remote> getRemotesToSave() {
